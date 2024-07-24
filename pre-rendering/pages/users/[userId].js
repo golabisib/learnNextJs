@@ -1,12 +1,9 @@
 import { notFound } from "next/navigation";
-import { useRouter } from "next/router";
+
 import React from "react";
 
 function UserDetail({ data }) {
-  const router = useRouter();
-  if (router.isFallback) {
-    return <h2>fallback Page</h2>;
-  }
+
   return (
     <div>
       <h1>UserDetail</h1> <h3>{data.name}</h3>
@@ -28,7 +25,7 @@ export async function getStaticPaths() {
 
   return {
     paths,
-    fallback: true,
+    fallback: "blocking",
   };
 }
 
