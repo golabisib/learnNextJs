@@ -2,7 +2,6 @@ import Link from "next/link";
 import React from "react";
 
 function Users({ users }) {
-    console.log(users)
   return <div>
     <ul>
         {
@@ -15,10 +14,12 @@ function Users({ users }) {
 export default Users;
 
 export async function getStaticProps() {
+    console.log("re");
   const res = await fetch("http://localhost:4000/users");
   const data = await res.json();
 
   return {
     props: { users: data },
+    revalidate: 10 //seconds
   };
 }
