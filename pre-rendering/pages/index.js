@@ -6,7 +6,11 @@ export default function Home({ posts }) {
   return (
     <>
       <h3>golabi</h3>
+      <hr/>
       <Link href="/users/">Users</Link>
+      <hr/>
+      <Link href="/albums/">Albums</Link>
+      <hr/>
       <Post posts={posts} />
     </>
   );
