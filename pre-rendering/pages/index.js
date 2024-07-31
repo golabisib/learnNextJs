@@ -2,7 +2,7 @@ import Post from "@/components/Post";
 import Link from "next/link";
 
 export default function Home({ posts }) {
-  console.log(posts);
+
   return (
     <>
       <h3>golabi</h3>

@@ -14,7 +14,6 @@ function Users({ users }) {
 export default Users;
 
 export async function getStaticProps() {
-    console.log("re");
   const res = await fetch("http://localhost:4000/users");
   const data = await res.json();
 

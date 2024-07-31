@@ -30,7 +30,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-    console.log("UsersPage Regeneration")
   const { params } = context;
   const res = await fetch(`http://localhost:4000/users/${params.userId}`);
   const data = await res.json();
