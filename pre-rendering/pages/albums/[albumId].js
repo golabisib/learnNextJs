@@ -1,3 +1,4 @@
+import { notFound, redirect } from "next/navigation";
 import React from "react";
 
 function AlbumDetail({ album }) {
@@ -14,6 +15,12 @@ export async function getServerSideProps(context) {
   const response = await fetch(`http://localhost:4000/albums/${params.albumId}`);
   const data = await response.json();
   console.log(data);
+
+  if (!data.title){
+    return {
+        notFound: true,
+    }
+  };
   return {
     props: { album: data },
   };
