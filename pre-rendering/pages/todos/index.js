@@ -1,16 +1,22 @@
 import React, { useEffect, useState } from "react";
 
 function ToDos() {
-    const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState([]);
   useEffect(() => {
     fetch("http://localhost:4000/todos")
       .then((res) => res.json())
       .then((data) => setTodos(data));
   }, []);
 
-  return <div>
-    {todos.length ? todos.map(todo => <h3 key={todo.id}>{todo.title}</h3>) : <h1>Loading...</h1>}
-  </div>;
+  return (
+    <div>
+      {todos.length ? (
+        todos.map((todo) => <h3 key={todo.id}>{todo.title}</h3>)
+      ) : (
+        <h1>Loading...</h1>
+      )}
+    </div>
+  );
 }
 
 export default ToDos;
